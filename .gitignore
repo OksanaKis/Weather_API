@@ -1,0 +1,62 @@
+# Node / React / Next
+node_modules/
+.next/
+out/
+dist/
+build/
+.cache/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.tsbuildinfo
+
+# Env & secrets
+.env
+.env.*
+!.env.example
+
+# Package managers
+.pnpm-store/
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# Framework tooling
+.vercel/
+.netlify/
+.turbo/
+coverage/
+.cypress/
+playwright-report/
+test-results/
+
+# Editors/OS
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.DS_Store
+Thumbs.db
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pkl
+.mypy_cache/
+.pytest_cache/
+.pyre/
+.pytype/
+.coverage
+htmlcov/
+
+# Misc
+.idea/
+*.swp
