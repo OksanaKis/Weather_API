@@ -18,8 +18,15 @@ def about(station, date):
         "station": station,
         "date": date,
         "temperature": temperature
-    }
+    } 
 
+
+# @app.route("/api/v1/<word>") 
+# def api(word): 
+#     definition = word.upper() 
+#     result_dictionary = {'word': word, 
+#                          'definition': definition} 
+#     return result_dictionary
 
 if __name__ == "__main__":
     app.run(debug=True) 
