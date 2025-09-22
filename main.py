@@ -1,8 +1,10 @@
 from flask import Flask, render_template, url_for, redirect
 import os
+import pandas as pd
 
 # app = Flask("Website") 
-app = Flask(__name__, static_folder="static")
+# app = Flask(__name__, static_folder="static")
+app = Flask(__name__) 
 
 @app.route("/") 
 def home(): 
@@ -10,15 +12,17 @@ def home():
 
 @app.route("/api/v1/<station>/<date>") 
 def about(station, date): 
-    temperature = 23 
-    # df = pandas.read_csv("") 
-    # temperature = df.station(date)
-    # return render_template("about.html") 
+    filename = "data_small\TG_STAID" +str(station).zfill(6) + ".txt"
+    df = pd.read_csv(filename,skiprows=20,parse_dates=["    DATE"]) 
+    temperature = df.loc[df['    DATE'] == date]['   TG'].squeeze()/10
     return {
         "station": station,
         "date": date,
         "temperature": temperature
-    } 
+    }
+
+if __name__ == "__main__": 
+    app.run(debug=True, port=5000) 
 
 
 # @app.route("/api/v1/<word>") 
@@ -27,10 +31,6 @@ def about(station, date):
 #     result_dictionary = {'word': word, 
 #                          'definition': definition} 
 #     return result_dictionary
-
-if __name__ == "__main__":
-    app.run(debug=True) 
-
 
 # @app.route("/")
 # def index():
